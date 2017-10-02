@@ -1,0 +1,31 @@
+---
+title: Scatter Plots
+author: Ryan Smerkar
+date: '2017-10-02'
+slug: scatter-plots
+categories:
+  - R
+tags:
+  - scatter plot
+---
+
+
+
+<p>Lets learn one way of visualizing data. If we would like to make a scatter plot of data of players careers strike outs versus their career Homeruns, only for those who have hit 400 or more Homeruns this is what we would do.</p>
+<p>First we need to install and library some packages:</p>
+<pre class="r"><code>library(Lahman)
+library(sqldf)
+library(ggplot2)</code></pre>
+<p>Now we may begin working with our R script:</p>
+<pre class="r"><code>query&lt;-&quot;select playerID,sum(HR) as career_HR,sum(SO) as career_SO from Batting
+group by playerID
+having sum(HR)&gt;=400&quot;
+
+result&lt;-sqldf(query)
+
+ggplot()+
+  geom_point(data=result,aes(x=career_SO,y=career_HR),size=3,color=&quot;red&quot;)+
+  ggtitle(&quot;Career Strikeouts VS Homeruns for Great Hitters&quot;)+
+  xlab(&quot;Career Strikeouts&quot;)+
+  ylab(&quot;Career Homeruns&quot;)</code></pre>
+<p><img src="/post/2017-10-02-scatter-plots_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>

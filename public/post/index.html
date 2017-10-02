@@ -7,7 +7,7 @@
         <meta name="author">
         <meta name="description" content="Quick r Tutorials">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="generator" content="Hugo 0.28" />
+        <meta name="generator" content="Hugo 0.29" />
         <link href="/post/index.xml" rel="alternate" type="application/rss+xml" title="Ryan&#39;s Blog" />
         <link href="/post/index.xml" rel="feed" type="application/rss+xml" title="Ryan&#39;s Blog" />
         <link href='//fonts.googleapis.com/css?family=Roboto:400,300,700|Noto+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -43,6 +43,40 @@
     <main role="main" class="content">
         <a class="btn home" href="/" title="Back to home">&laquo; Back to home</a>
         
+        
+            <article class="post">
+    
+<h1><a href="/post/scatter-plots/" title="Scatter Plots">Scatter Plots</a></h1>
+
+<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.02">2017.10.02</time>
+
+    &middot; Tagged in
+        
+        <a href="/tags/scatter-plot">scatter plot</a>
+        
+    
+
+</span>
+</footer>
+
+    <p>Lets learn one way of visualizing data. If we would like to make a scatter plot of data of players careers strike outs versus their career Homeruns, only for those who have hit 400 or more Homeruns this is what we would do.
+First we need to install and library some packages:
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+Now we may begin working with our R script:
+query&lt;-&quot;select playerID,sum(HR) as career_HR,sum(SO) as career_SO from Batting
+group by playerID
+having sum(HR)&gt;=400&quot;
+result&lt;-sqldf(query)
+ggplot()+
+geom_point(data=result,aes(x=career_SO,y=career_HR),size=3,color=&quot;red&quot;)+
+ggtitle(&quot;Career Strikeouts VS Homeruns for Great Hitters&quot;)+
+xlab(&quot;Career Strikeouts&quot;)+
+ylab(&quot;Career Homeruns&quot;)&hellip;</p>
+    <a href="/post/scatter-plots/" title="Scatter Plots">Read more &raquo;</a>
+</article>
+
         
             <article class="post">
     
