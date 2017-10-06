@@ -1,0 +1,29 @@
+---
+title: Histograms
+author: Ryan Smerkar
+date: '2017-10-06'
+slug: histograms
+categories:
+  - R
+tags:
+  - historgram
+---
+
+
+
+<p>Lets take a look at the second way of visualizing data, we will need to library in the same packages as those in the “Scatter Plot” post. Lets say we would like to make a histogram of all MLB players weights ever recorded, here’s what we would do:</p>
+<pre class="r"><code>library(sqldf)
+library(Lahman)
+library(ggplot2)
+query&lt;-&quot;select weight 
+from Master&quot;
+
+result&lt;-sqldf(query)
+
+# Visulaizing Data---------
+
+ggplot()+
+  geom_histogram(data=result,aes(x=weight), color=&quot;blue&quot;,fill=&quot;white&quot;,bins=50)+
+  ggtitle(&quot;Body-Weight Distribution for Baseball Players&quot;)</code></pre>
+<p><img src="/post/2017-10-06-histograms_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Color, fill and Bins (Number of Bars) are are editable to your liking.</p>

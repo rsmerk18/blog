@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Posts &middot; Ryan&#39;s Blog</title>
+        <title>Ryan&#39;s Blog</title>
         <meta name="author">
         <meta name="description" content="Quick r Tutorials">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,13 +39,12 @@
           </div>
         </header>
 
+
 <div class="container clearfix">
     <main role="main" class="content">
-        <a class="btn home" href="/" title="Back to home">&laquo; Back to home</a>
-        
-        
-            <article class="post">
-    
+        <article class="post">
+            <a class="btn home" href="/" title="Back to home">&laquo; Back to home</a>
+            
 <h1><a href="/post/histograms/" title="Histograms">Histograms</a></h1>
 
 <footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.06">2017.10.06</time>
@@ -59,69 +58,66 @@
 </span>
 </footer>
 
-    <p><p>Lets take a look at the second way of visualizing data, we will need to library in the same packages as those in the “Scatter Plot” post. Lets say we would like to make a histogram of all MLB players weights ever recorded, here’s what we would do:
-library(sqldf)
+            <p>Lets take a look at the second way of visualizing data, we will need to library in the same packages as those in the “Scatter Plot” post. Lets say we would like to make a histogram of all MLB players weights ever recorded, here’s what we would do:</p>
+<pre class="r"><code>library(sqldf)
 library(Lahman)
 library(ggplot2)
-query&lt;-&quot;select weight from Master&quot;
-result&lt;-sqldf(query)</p>
+query&lt;-&quot;select weight 
+from Master&quot;
 
-<h1 id="visulaizing-data">Visulaizing Data&mdash;&mdash;&mdash;</h1>
-
-<p>ggplot()+
-geom_histogram(data=result,aes(x=weight), color=&quot;blue&quot;,fill=&quot;white&quot;,bins=50)+
-ggtitle(&quot;Body-Weight Distribution for Baseball Players&quot;)
-Color, fill and Bins (Number of Bars) are are editable to your liking.</p>
-&hellip;</p>
-    <a href="/post/histograms/" title="Histograms">Read more &raquo;</a>
-</article>
-
-        
-            <article class="post">
-    
-<h1><a href="/post/scatter-plots/" title="Scatter Plots">Scatter Plots</a></h1>
-
-<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.02">2017.10.02</time>
-
-    &middot; Tagged in
-        
-        <a href="/tags/scatter-plot">scatter plot</a>
-        
-    
-
-</span>
-</footer>
-
-    <p>Lets learn one way of visualizing data. If we would like to make a scatter plot of data of players careers strike outs versus their career Homeruns, only for those who have hit 400 or more Homeruns this is what we would do.
-First we need to install and library some packages:
-library(Lahman)
-library(sqldf)
-library(ggplot2)
-Now we may begin working with our R script:
-query&lt;-&quot;select playerID,sum(HR) as career_HR,sum(SO) as career_SO from Batting
-group by playerID
-having sum(HR)&gt;=400&quot;
 result&lt;-sqldf(query)
+
+# Visulaizing Data---------
+
 ggplot()+
-geom_point(data=result,aes(x=career_SO,y=career_HR),size=3,color=&quot;red&quot;)+
-ggtitle(&quot;Career Strikeouts VS Homeruns for Great Hitters&quot;)+
-xlab(&quot;Career Strikeouts&quot;)+
-ylab(&quot;Career Homeruns&quot;)&hellip;</p>
-    <a href="/post/scatter-plots/" title="Scatter Plots">Read more &raquo;</a>
-</article>
+  geom_histogram(data=result,aes(x=weight), color=&quot;blue&quot;,fill=&quot;white&quot;,bins=50)+
+  ggtitle(&quot;Body-Weight Distribution for Baseball Players&quot;)</code></pre>
+<p><img src="/post/2017-10-06-histograms_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Color, fill and Bins (Number of Bars) are are editable to your liking.</p>
 
+            <ul class="share-buttons">
+    <li>Share this article:</li>
+    <li>
+        <a class="icon-facebook-squared" href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fhistograms%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook"></a>
+    </li>
+    <li>
+        <a class="icon-twitter" href="https://twitter.com/share?text=Histograms&amp;url=%2fpost%2fhistograms%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Tweet this article"></a>
+    </li>
+    <li>
+        <a class="icon-gplus" href="https://plus.google.com/share?url=%2fpost%2fhistograms%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google&#43;"></a>
+    </li>
+    <li>
+        <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=%2fpost%2fhistograms%2f&title=Histograms" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;" title="Share on Linkedin"></a>
+    </li>
+</ul>
+
+        </article>
         
-        <div class="pagination">
-<nav>
-
-	<p class="counter">Page 1 of 1</p>
-
-
-</nav>
-</div>
-
+        <div class="comments">
+            <h3>Comments</h3>
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "spf13" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+        
     </main>
-
     <aside class="author">
   <img class="profile-image" src="/img/profile-image.png" alt="Ryan Smerkar" />
   <p class="name">by 
@@ -154,6 +150,7 @@ ylab(&quot;Career Homeruns&quot;)&hellip;</p>
 </aside>
 
 </div>
+
 <footer class="main-footer">
   <div class="container clearfix">
         

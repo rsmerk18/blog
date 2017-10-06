@@ -46,6 +46,39 @@
         
             <article class="post">
     
+<h1><a href="/post/histograms/" title="Histograms">Histograms</a></h1>
+
+<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.06">2017.10.06</time>
+
+    &middot; Tagged in
+        
+        <a href="/tags/historgram">historgram</a>
+        
+    
+
+</span>
+</footer>
+
+    <p><p>Lets take a look at the second way of visualizing data, we will need to library in the same packages as those in the “Scatter Plot” post. Lets say we would like to make a histogram of all MLB players weights ever recorded, here’s what we would do:
+library(sqldf)
+library(Lahman)
+library(ggplot2)
+query&lt;-&quot;select weight from Master&quot;
+result&lt;-sqldf(query)</p>
+
+<h1 id="visulaizing-data">Visulaizing Data&mdash;&mdash;&mdash;</h1>
+
+<p>ggplot()+
+geom_histogram(data=result,aes(x=weight), color=&quot;blue&quot;,fill=&quot;white&quot;,bins=50)+
+ggtitle(&quot;Body-Weight Distribution for Baseball Players&quot;)
+Color, fill and Bins (Number of Bars) are are editable to your liking.</p>
+&hellip;</p>
+    <a href="/post/histograms/" title="Histograms">Read more &raquo;</a>
+</article>
+
+        
+            <article class="post">
+    
 <h1><a href="/post/scatter-plots/" title="Scatter Plots">Scatter Plots</a></h1>
 
 <footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.02">2017.10.02</time>
