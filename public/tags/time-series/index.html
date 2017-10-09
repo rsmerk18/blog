@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>R &middot; Ryan&#39;s Blog</title>
+        <title>Time Series &middot; Ryan&#39;s Blog</title>
         <meta name="author">
         <meta name="description" content="Quick r Tutorials">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -74,73 +74,6 @@ xlab(&quot;year&quot;)+
 ylab(&quot;Homeruns&quot;)
 The xlab and ylab are labels that are optional and editable.&hellip;</p>
     <a href="/post/time-series/" title="Time Series">Read more &raquo;</a>
-</article>
-
-        
-            <article class="post">
-    
-<h1><a href="/post/histograms/" title="Histograms">Histograms</a></h1>
-
-<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.06">2017.10.06</time>
-
-    &middot; Tagged in
-        
-        <a href="/tags/historgram">historgram</a>
-        
-    
-
-</span>
-</footer>
-
-    <p><p>Lets take a look at the second way of visualizing data, we will need to library in the same packages as those in the “Scatter Plot” post. Lets say we would like to make a histogram of all MLB players weights ever recorded, here’s what we would do:
-library(sqldf)
-library(Lahman)
-library(ggplot2)
-query&lt;-&quot;select weight from Master&quot;
-result&lt;-sqldf(query)</p>
-
-<h1 id="visulaizing-data">Visulaizing Data&mdash;&mdash;&mdash;</h1>
-
-<p>ggplot()+
-geom_histogram(data=result,aes(x=weight), color=&quot;blue&quot;,fill=&quot;white&quot;,bins=50)+
-ggtitle(&quot;Body-Weight Distribution for Baseball Players&quot;)
-Color, fill and Bins (Number of Bars) are are editable to your liking.</p>
-&hellip;</p>
-    <a href="/post/histograms/" title="Histograms">Read more &raquo;</a>
-</article>
-
-        
-            <article class="post">
-    
-<h1><a href="/post/scatter-plots/" title="Scatter Plots">Scatter Plots</a></h1>
-
-<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.02">2017.10.02</time>
-
-    &middot; Tagged in
-        
-        <a href="/tags/scatter-plot">scatter plot</a>
-        
-    
-
-</span>
-</footer>
-
-    <p>Lets learn one way of visualizing data. If we would like to make a scatter plot of data of players careers strike outs versus their career Homeruns, only for those who have hit 400 or more Homeruns this is what we would do.
-First we need to install and library some packages:
-library(Lahman)
-library(sqldf)
-library(ggplot2)
-Now we may begin working with our R script:
-query&lt;-&quot;select playerID,sum(HR) as career_HR,sum(SO) as career_SO from Batting
-group by playerID
-having sum(HR)&gt;=400&quot;
-result&lt;-sqldf(query)
-ggplot()+
-geom_point(data=result,aes(x=career_SO,y=career_HR),size=3,color=&quot;red&quot;)+
-ggtitle(&quot;Career Strikeouts VS Homeruns for Great Hitters&quot;)+
-xlab(&quot;Career Strikeouts&quot;)+
-ylab(&quot;Career Homeruns&quot;)&hellip;</p>
-    <a href="/post/scatter-plots/" title="Scatter Plots">Read more &raquo;</a>
 </article>
 
         

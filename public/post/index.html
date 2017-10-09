@@ -46,6 +46,39 @@
         
             <article class="post">
     
+<h1><a href="/post/time-series/" title="Time Series">Time Series</a></h1>
+
+<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.08">2017.10.08</time>
+
+    &middot; Tagged in
+        
+        <a href="/tags/time-series">time series</a>
+        
+    
+
+</span>
+</footer>
+
+    <p>The third way we can visualize data is with Time Series:
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+query&lt;-&quot;select yearID, HR from Batting
+where playerID=&#39;ruthba01&#39;&quot;
+result&lt;-sqldf(query)
+ggplot()+
+geom_point(data=result,aes(x=yearID,y=HR))+
+geom_line(data=result,aes(x=yearID,y=HR))+
+ggtitle(&quot;Ruth&#39;s Homeruns Through the Years&quot;)+
+xlab(&quot;year&quot;)+
+ylab(&quot;Homeruns&quot;)
+The xlab and ylab are labels that are optional and editable.&hellip;</p>
+    <a href="/post/time-series/" title="Time Series">Read more &raquo;</a>
+</article>
+
+        
+            <article class="post">
+    
 <h1><a href="/post/histograms/" title="Histograms">Histograms</a></h1>
 
 <footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.06">2017.10.06</time>

@@ -1,0 +1,32 @@
+---
+title: Time Series
+author: Ryan Smerkar
+date: '2017-10-08'
+slug: time-series
+categories:
+  - R
+tags:
+  - time series
+---
+
+The third way we can visualize data is with Time Series:
+
+```{r warning=FALSE, message=FALSE}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+
+query<-"select yearID, HR from Batting
+where playerID='ruthba01'"
+
+result<-sqldf(query)
+
+ggplot()+
+  geom_point(data=result,aes(x=yearID,y=HR))+
+  geom_line(data=result,aes(x=yearID,y=HR))+
+  ggtitle("Ruth's Homeruns Through the Years")+
+  xlab("year")+
+  ylab("Homeruns")
+```
+
+The xlab and ylab are labels that are optional and editable.

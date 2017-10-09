@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Powered by [Hugo](http://gohugo.io).</copyright>
-    <lastBuildDate>Fri, 06 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Time Series</title>
+      <link>/post/time-series/</link>
+      <pubDate>Sun, 08 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/time-series/</guid>
+      <description>The third way we can visualize data is with Time Series:
+library(Lahman)library(sqldf)library(ggplot2)query&amp;lt;-&amp;quot;select yearID, HR from Battingwhere playerID=&amp;#39;ruthba01&amp;#39;&amp;quot;result&amp;lt;-sqldf(query)ggplot()+geom_point(data=result,aes(x=yearID,y=HR))+geom_line(data=result,aes(x=yearID,y=HR))+ggtitle(&amp;quot;Ruth&amp;#39;s Homeruns Through the Years&amp;quot;)+xlab(&amp;quot;year&amp;quot;)+ylab(&amp;quot;Homeruns&amp;quot;)The xlab and ylab are labels that are optional and editable.</description>
+    </item>
     
     <item>
       <title>Histograms</title>
