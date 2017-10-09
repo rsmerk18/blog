@@ -46,6 +46,41 @@
         
             <article class="post">
     
+<h1><a href="/post/bar-plots/" title="Bar Plots">Bar Plots</a></h1>
+
+<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.09">2017.10.09</time>
+
+    &middot; Tagged in
+        
+        <a href="/tags/bar-plot">bar plot</a>
+        
+    
+
+</span>
+</footer>
+
+    <p>The final way we will visulize data is with Bar plots.
+Lets say we would like to see homerun totals for all MLB teams in 1980:
+library(sqldf)
+library(Lahman)
+library(ggplot2)
+query&lt;-&quot;select name, HR from Teams where yearID=1980
+order by HR&quot;
+result&lt;-sqldf(query)
+result$name&lt;-factor(result$name,levels=result$name)
+It is important to let the system know that the data should appear, by saving the command as a factor.
+ggplot()+
+geom_bar(data=result, aes(x=name,y=HR),stat=&#39;identity&#39;)+
+coord_flip()+
+ggtitle(&quot;1980 Team Homerun Totals&quot;)+
+xlab(&quot;Team Name&quot;)+
+ylab(&quot;Homeruns&quot;)&hellip;</p>
+    <a href="/post/bar-plots/" title="Bar Plots">Read more &raquo;</a>
+</article>
+
+        
+            <article class="post">
+    
 <h1><a href="/post/time-series/" title="Time Series">Time Series</a></h1>
 
 <footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.08">2017.10.08</time>
